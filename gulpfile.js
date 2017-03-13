@@ -33,19 +33,37 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(DIST_FOLDER));
 });
 
+// Convert and concat less > css
+gulp.task('less', function () {
+  gulp.src(['./less/base.less'])
+    .pipe(less())
+    .pipe(concat(CSS_DIST))
+    .pipe(gulp.dest(DIST_FOLDER));
+});
+
+// Remove all css files from the production folder
+gulp.task('clean-css', function() {
+  del([`${DIST_FOLDER}*.css`]).then(paths => {
+    paths.length && console.log('Removed:\n', paths.join('\n'));
+  });
+});
+
 // Remove all js files from the production folder
 gulp.task('clean-js', function() {
-  del([`${DIST_FOLDER}*.js`, ]).then(paths => {
+  del([`${DIST_FOLDER}*.js`]).then(paths => {
     paths.length && console.log('Removed:\n', paths.join('\n'));
   });
 });
 
 // Remove all css files from the production folder
 gulp.task('clean-css', function() {
-  // Your code here
+  gulp.src(['./less/**/*.less'])
+    .pipe(concat(CSS_DIST))
+
+    .pipe(gulp.dest(DIST_FOLDER));
 });
 
 
-gulp.task('build', ['clean-js', 'scripts']);
+gulp.task('build', ['clean-js', 'clean-css', 'less', 'scripts']);
 
 gulp.task('deploy', ['build']);
