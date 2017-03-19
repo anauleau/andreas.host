@@ -55,14 +55,6 @@ gulp.task('clean-js', function() {
   });
 });
 
-// Remove all css files from the production folder
-gulp.task('clean-css', function() {
-  gulp.src(['./less/**/*.less'])
-    .pipe(concat(CSS_DIST))
-
-    .pipe(gulp.dest(DIST_FOLDER));
-});
-
 
 gulp.task('build', ['clean-js', 'clean-css', 'less', 'scripts']);
 
