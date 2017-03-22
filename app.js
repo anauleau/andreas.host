@@ -7,7 +7,7 @@ const path = require('path')
 // Static css/js files
 app.use('/static', express.static('./dist'))
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')))
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/dist/index.html')))
 
 const port = 3001
 
