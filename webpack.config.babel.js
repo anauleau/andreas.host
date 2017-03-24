@@ -16,6 +16,9 @@ module.exports = env => {
     entry: {
       app: './bootstrap.js'
     },
+    externals: {
+      foundation: 'Foundation'
+    },
     output: {
       filename: ifProd('bundle.[name].[chunkhash].js', 'bundle.[name].js'),
       path: resolve('dist'),
@@ -25,13 +28,8 @@ module.exports = env => {
     module: {
       loaders: [
         {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style',
-            loader: 'css'
-          })
-        }
+        {test: /\.css$/, loader: 'style-loader!css-loader!'},
+        {test: /\.scss$/, loader: 'sass-loader'}
       ]
     },
     plugins: removeEmpty([
