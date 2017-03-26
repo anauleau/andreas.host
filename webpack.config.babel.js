@@ -27,9 +27,20 @@ module.exports = env => {
     devtool: ifProd('source-map', 'eval'),
     module: {
       loaders: [
-        {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
-        {test: /\.css$/, loader: 'style-loader!css-loader!'},
-        {test: /\.scss$/, loader: 'sass-loader'}
+        {
+          test: /\.js$/,
+          loaders: ['babel-loader'],
+          exclude: /node_modules/
+        },
+        {
+          test: /\.css$/,
+          loaders: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.(jpg|png|svg)$/,
+          loader: 'file-loader',
+          options: {name: './assets/[hash].[ext]'}
+        }
       ]
     },
     plugins: removeEmpty([

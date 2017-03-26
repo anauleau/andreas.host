@@ -1,11 +1,75 @@
 body {
-  background-color: aliceblue;
+  background-color: Ivory;
 }
 
 h1 {
-  color: coral;
+  color: midnightblue;
+  font-weight: 500;
 }
 
 p {
-  color: cadetblue;
+  color: midnightblue;
+  font-size: 32px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+a {
+  color: midnightblue;
+}
+
+#landing-image {
+    margin: 25px 0;
+    height: 200px;
+    border: 3px solid MidnightBlue;
+    border-radius: 30px;
+}
+
+.landing-header {
+  text-shadow: 2px -2px 0 #ff0088;
+}
+
+ /*darker shade of MediumSeaGreen*/
+a:hover {
+  color: #ff0088;
+}
+
+.landing-link {
+  border-bottom: 1px dashed MidnightBlue;
+}
+
+/*darker shade of MediumSeaGreen*/
+.landing-link:hover {
+  border-bottom: 1px dashed #ff0088;
+}
+
+@media screen and (max-width: 39.9375em) {
+  body {
+    padding: 0 5px;
+  }
+  p {
+    line-height: 1.3;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  #landing-image {
+    height: 140px;
+    margin: 10px 0;
+  }
+  .landing-text {
+    font-size: 24px;
+  }
+  .landing-link {
+    border-bottom-width: 2px;
+  }
+  .landing-link:hover {
+    border-bottom-width: 2px;
+  }
+  .landing-header {
+    font-size: 48px;
+    margin-top: 15px;
+  }
+  h1 {
+    line-height: 0.78;
+  }
 }
