@@ -35,11 +35,6 @@ module.exports = env => {
         {
           test: /\.css$/,
           loaders: ['style-loader', 'css-loader']
-        },
-        {
-          test: /\.(jpg|png|svg)$/,
-          loader: 'file-loader',
-          options: {name: './assets/[hash].[ext]'}
         }
       ]
     },
