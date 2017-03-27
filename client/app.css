@@ -15,7 +15,7 @@ p {
 }
 
 a {
-  color: midnightblue;
+  color: #ff0088;
 }
 
 #landing-image {
@@ -29,16 +29,14 @@ a {
   text-shadow: 2px -2px 0 #ff0088;
 }
 
- /*darker shade of MediumSeaGreen*/
 a:hover {
-  color: #ff0088;
+  color: MidnightBlue;
 }
 
 .landing-link {
   border-bottom: 1px dashed MidnightBlue;
 }
 
-/*darker shade of MediumSeaGreen*/
 .landing-link:hover {
   border-bottom: 1px dashed #ff0088;
 }
